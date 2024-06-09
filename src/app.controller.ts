@@ -1,12 +1,24 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Post, Patch, Delete } from '@nestjs/common';
 
-@Controller()
+@Controller('example')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  @Post()
+  create(): string {
+    return 'You made a POST request';
+  }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  findAll(): string {
+    return 'You made a GET request';
+  }
+
+  @Patch()
+  update(): string {
+    return 'You made a PATCH request';
+  }
+
+  @Delete()
+  remove(): string {
+    return 'You made a DELETE request';
   }
 }
